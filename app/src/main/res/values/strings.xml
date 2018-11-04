@@ -9,4 +9,10 @@
 
     <string name="reparto_button">Repartos</string>
 
+    <string name="bestSellersText">Best Sellers a entregar</string>
+    <string name="strError">No se ha recuperado ningún best seller</string>
+    <string name="btnDescripcion">Botón buscar</string>
+    <string name="tvBestSellerAuthor">Autor:</string>
+    <string name="hintBestSellerAuthor">Nombre del autor</string>
+
 </resources>

@@ -101,6 +101,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void onClickRepartos(View view) {
         Log.i(LOG_TAG, "onClickRepartos ");
-        //startActivity(new Intent(this, BestSellersActivity.class));
+        startActivity(new Intent(this, RepartoBestSellersActivity.class));
     }
 }
