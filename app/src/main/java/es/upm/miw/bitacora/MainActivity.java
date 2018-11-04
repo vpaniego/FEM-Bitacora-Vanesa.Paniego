@@ -13,8 +13,12 @@ import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
+
+import es.upm.miw.bitacora.models.User;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -22,6 +26,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private DatabaseReference mDatabase;
 
     private static final int RC_SIGN_IN = 2018;
 
@@ -58,6 +63,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 }
             }
         };
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        User user = new User("user1", "user1@mail.es");
+        String userId = mDatabase.child("users").push().getKey();
+        mDatabase.child("users").child(userId).setValue(user);
+        Log.i(LOG_TAG, "onCreate new User " + userId);
+
     }
 
 
