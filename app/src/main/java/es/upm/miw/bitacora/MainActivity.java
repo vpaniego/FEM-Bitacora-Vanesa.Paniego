@@ -98,4 +98,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mFirebaseAuth.signOut();
         Log.i(LOG_TAG, getString(R.string.signed_out));
     }
+
+    public void onClickRepartos(View view) {
+        Log.i(LOG_TAG, "onClickRepartos ");
+        //startActivity(new Intent(this, BestSellersActivity.class));
+    }
 }
