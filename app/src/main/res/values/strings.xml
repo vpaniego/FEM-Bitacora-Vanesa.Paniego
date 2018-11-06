@@ -9,4 +9,18 @@
 
     <string name="reparto_button">Repartos</string>
 
+    <!-- Mostrar Repartos -->
+    <string name="textDialogoRepartosTitulo">Repartos</string>
+    <string name="headerNombreRepartidor">Repartidor</string>
+    <string name="headerEmail">Email</string>
+    <!-- <string name="headerFecha">Fecha</string> -->
+
+    <string name="repartosText">Repartos</string>
+    <string name="registrarIncidenciaText">Registrar incidencia</string>
+    <!-- Dialogo Registrar incidencia -->
+    <string name="txtDialogoRegistrarIncidenciaTitulo">Registrar incidencia</string>
+    <string name="txtDialogoRegistrarIncidenciaPregunta">¿Desea registrar incidencia en el reparto marcado?</string>
+    <string name="txtDialogoRegistrarIncidenciaAfirmativo">Sí</string>
+    <string name="txtDialogoRegistrarIncidenciaNegativo">No</string>
+
 </resources>

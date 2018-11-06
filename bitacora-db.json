@@ -1,7 +1,7 @@
 {
   "repartidores": {
     "QtvKK8VIF2aNjJBSKU7jnZu4ZIh1" : {
-      "pedidos" : {
+      "repartos" : {
         "9780399178573" : {
           "title" : "I GIVE YOU MY BODY"
         },
@@ -11,7 +11,7 @@
       }
     },
     "5eDJflUQt5Z3umnWCw8NCw8Paxy2" : {
-      "pedidos" : {
+      "repartos" : {
         "9780062273123": {
           "title" : "ASKGARYVEE"
         },
