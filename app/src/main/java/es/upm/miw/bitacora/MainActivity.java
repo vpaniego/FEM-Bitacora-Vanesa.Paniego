@@ -18,15 +18,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 
-import es.upm.miw.bitacora.models.User;
-
 public class MainActivity extends Activity implements View.OnClickListener {
 
     final static String LOG_TAG = "MiW";
 
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private DatabaseReference mDatabase;
+    private DatabaseReference mFirebaseDatabase;
 
     private static final int RC_SIGN_IN = 2018;
 
@@ -43,7 +41,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // user is signed in
-                    CharSequence username = user.getDisplayName();
+                    CharSequence username = user.getEmail();
                     Toast.makeText(MainActivity.this, getString(R.string.firebase_user_fmt, username), Toast.LENGTH_LONG).show();
                     Log.i(LOG_TAG, "onAuthStateChanged() " + getString(R.string.firebase_user_fmt, username));
                     ((TextView) findViewById(R.id.textView)).setText(getString(R.string.firebase_user_fmt, username));
@@ -63,12 +61,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 }
             }
         };
-
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        User user = new User("user1", "user1@mail.es");
-        String userId = mDatabase.child("users").push().getKey();
-        mDatabase.child("users").child(userId).setValue(user);
-        Log.i(LOG_TAG, "onCreate new User " + userId);
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference();
+        if(mFirebaseDatabase != null){
+            Log.i(LOG_TAG, "existe instancia mFirebaseDatabase ");
+        }
 
     }
 
@@ -115,4 +111,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Log.i(LOG_TAG, "onClickRepartos ");
         //startActivity(new Intent(this, BestSellersActivity.class));
     }
+
+
 }
