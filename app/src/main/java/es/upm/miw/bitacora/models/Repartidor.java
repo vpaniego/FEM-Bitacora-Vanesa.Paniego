@@ -2,6 +2,7 @@ package es.upm.miw.bitacora.models;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @IgnoreExtraProperties
@@ -10,15 +11,16 @@ public class Repartidor {
     public String username;
     public String email;
 
-    public List<Reparto> repartos;
+    public ArrayList<Reparto> repartos = new ArrayList<>();
 
     public Repartidor() {
         // Default constructor required for calls to DataSnapshot.getValue(Repartidor.class)
     }
 
-    public Repartidor(String username, String email) {
+    public Repartidor(String username, String email, ArrayList<Reparto> repartos) {
         this.username = username;
         this.email = email;
+        this.repartos = repartos;
     }
 
     public String getUsername() {
@@ -41,7 +43,7 @@ public class Repartidor {
         return repartos;
     }
 
-    public void setRepartos(List<Reparto> repartos) {
+    public void setRepartos(ArrayList<Reparto> repartos) {
         this.repartos = repartos;
     }
 
@@ -50,6 +52,7 @@ public class Repartidor {
         return "Repartidor{" +
                 "username='" + username + '\'' +
                 ", email='" + email + '\'' +
+                ", repartos=" + repartos +
                 '}';
     }
 }

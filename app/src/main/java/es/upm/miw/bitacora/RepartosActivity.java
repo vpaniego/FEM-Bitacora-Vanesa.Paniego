@@ -3,23 +3,23 @@ package es.upm.miw.bitacora;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-//import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import es.upm.miw.bitacora.models.Repartidor;
 import es.upm.miw.bitacora.models.Reparto;
-
-//import es.upm.miw.db.RepositorioSCResultado;
 
 public class RepartosActivity extends Activity {
 
@@ -27,43 +27,81 @@ public class RepartosActivity extends Activity {
 
     private ListView repartosListView;
 
-    RepartidorAdapter adapter;
+    RepartoAdapter adapter;
 
-    private DatabaseReference mFirebaseDatabase;
-
-    //RepositorioSCResultado resultadoRepository;
+    private DatabaseReference mRepartidoresReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repartos);
 
-        //resultadoRepository = new RepositorioSCResultado(getApplicationContext());
-
         Bundle bundle = this.getIntent().getExtras();
-
-        //ActionBar actionBar = getSupportActionBar();
-        //if (actionBar != null) {
-        //    actionBar.setDisplayHomeAsUpEnabled(true);
-        //}
 
         repartosListView = findViewById(R.id.repartosListView);
 
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference();
-        if(mFirebaseDatabase != null){
-            Log.i(LOG_TAG, "existe instancia mFirebaseDatabase ");
-        }
+        final Repartidor mRepartidorSet = new Repartidor();
 
-        mFirebaseDatabase.child("repartidores");
-        List<Repartidor> mFirebaseDatabaseRepartos = new ArrayList<>();
-        adapter = new RepartidorAdapter(
+        mRepartidoresReference = FirebaseDatabase.getInstance().getReference()
+                .child("repartidores").child("QtvKK8VIF2aNjJBSKU7jnZu4ZIh1");
+
+        mRepartidoresReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                @SuppressWarnings("unchecked")
+                Map<String, ?> repartidores = (Map<String, ?>)dataSnapshot.getValue();
+                if (repartidores == null) {
+                    /* log a warning, DataSnapshot.getValue may return null */
+                    Log.i(LOG_TAG, "DataSnapshot.getValue may return null");
+                    return;
+                }
+                ArrayList<Reparto> repartoList= new ArrayList<>();
+
+                for (Map.Entry<String, ?> repartoSetEntry : repartidores.entrySet()) {
+                    switch (repartoSetEntry.getKey()) {
+                        case "username":
+                            Log.i(LOG_TAG, "Username=" + (String)repartoSetEntry.getValue());
+                            mRepartidorSet.setUsername((String)repartoSetEntry.getValue());
+                            break;
+                        case "email":
+                            Log.i(LOG_TAG, "Mail=" + (String)repartoSetEntry.getValue());
+                            mRepartidorSet.setEmail((String)repartoSetEntry.getValue());
+                            break;
+                        case "repartos":
+                            @SuppressWarnings("unchecked")
+                            Map<String, ?> repartoMap = (HashMap<String, ?>)repartoSetEntry.getValue();
+                            for (Map.Entry<String, ?> repartoEntry : repartoMap.entrySet()) {
+                                @SuppressWarnings("unchecked")
+                                Map<String, ?> repartoValueMap = (Map<String, ?>)repartoEntry.getValue();
+                                Reparto reparto = new Reparto();
+                                // Note that the following calls are based on assumption...
+                                Log.i(LOG_TAG, "Title=" + (String)repartoValueMap.get("title"));
+                                reparto.setTitle((String)repartoValueMap.get("title"));
+                                repartoList.add(reparto);
+                            }
+                            mRepartidorSet.setRepartos(repartoList);
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(LOG_TAG, "loadRepartidor:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
+
+        adapter = new RepartoAdapter(
                 this,
                 R.layout.listado_repartos,
-                mFirebaseDatabaseRepartos);
+                mRepartidorSet.getRepartos());
 
         repartosListView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         setResult(RESULT_OK);
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,13 +115,21 @@ public class RepartosActivity extends Activity {
             case R.id.registrarIncidencia:
                 mostrarRegistrarIncidencia();
                 return true;
+            case R.id.finalizarReparto:
+                mostrarFinalizarReparto();
+                return true;
 
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void mostrarRegistrarIncidencia() {
-        //DialogFragment registrarIncidenciaDialogFragment = new IncidenciaDialogFragment();
-        //registrarIncidenciaDialogFragment.show(getFragmentManager(), String.valueOf(R.string.registrarIncidenciaText));
+        DialogFragment registrarIncidenciaDialogFragment = new RegistrarIncidenciaDialogFragment();
+        registrarIncidenciaDialogFragment.show(getFragmentManager(), String.valueOf(R.string.registrarIncidenciaText));
+    }
+
+    private void mostrarFinalizarReparto() {
+        DialogFragment finalizarDialogFragment = new FinalizarRepartoDialogFragment();
+        finalizarDialogFragment.show(getFragmentManager(), String.valueOf(R.string.finalizarRepartoText));
     }
 }

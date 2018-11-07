@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
+    <!-- <TextView
         android:id="@+id/tvUsername"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -13,6 +13,13 @@
 
     <TextView
         android:id="@+id/tvEmail"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="25"
+        android:textAlignment="center"/> -->
+
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="25"

@@ -14,20 +14,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import es.upm.miw.bitacora.models.Repartidor;
+import es.upm.miw.bitacora.models.Reparto;
 
 
-public class RepartidorAdapter extends ArrayAdapter<Repartidor> {
+public class RepartoAdapter extends ArrayAdapter<Reparto> {
 
     private Context context;
-    private List<Repartidor> repartidores;
+    private List<Reparto> repartos;
     private int resourceId;
 
-    public RepartidorAdapter(@NonNull Context context, int resource, @NonNull List<Repartidor> repartidores) {
-        super(context, resource, repartidores);
+    public RepartoAdapter(@NonNull Context context, int resource, @NonNull List<Reparto> repartos) {
+        super(context, resource, repartos);
         this.context = context;
         this.resourceId = resource;
-        this.repartidores = repartidores;
+        this.repartos = repartos;
     }
 
     @NonNull
@@ -42,20 +42,17 @@ public class RepartidorAdapter extends ArrayAdapter<Repartidor> {
             view = (LinearLayout) inflater.inflate(resourceId, parent, false);
         }
 
-        Repartidor repartidor = repartidores.get(position);
+        Reparto reparto = repartos.get(position);
 
-        //if (repartidor != null) {
+        if (reparto != null) {
 
-          //  TextView tvUsername = view.findViewById(R.id.tvUsername);
-          //  tvUsername.setText(repartidor.getUsername());
-
-            //TextView tvEmail = view.findViewById(R.id.tvEmail);
-            //tvEmail.setText(repartidor.getEmail());
+            TextView tvTitle = view.findViewById(R.id.tvTitle);
+            tvTitle.setText(reparto.getTitle());
 
             //TextView tvFecha = view.findViewById(R.id.tvFecha);
             //tvFecha.setText(format(repartidor.getFecha()));
 
-        //}
+        }
 
         return view;
     }
@@ -66,7 +63,7 @@ public class RepartidorAdapter extends ArrayAdapter<Repartidor> {
     }
 
     public void removeAllFromView() {
-        this.repartidores.clear();
+        this.repartos.clear();
         notifyDataSetChanged();
     }
 }
