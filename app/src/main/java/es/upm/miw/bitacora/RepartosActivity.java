@@ -75,14 +75,28 @@ public class RepartosActivity extends Activity {
                                 Map<String, ?> repartoValueMap = (Map<String, ?>)repartoEntry.getValue();
                                 Reparto reparto = new Reparto();
                                 // Note that the following calls are based on assumption...
-                                Log.i(LOG_TAG, "Title=" + (String)repartoValueMap.get("title"));
-                                reparto.setTitle((String)repartoValueMap.get("title"));
+
+                                reparto.setTitulo((String)repartoValueMap.get("titulo"));
+                                reparto.setFechaRecepcion((Long) repartoValueMap.get("fechaRecepcion"));
+                                reparto.setFechaEntrega((Long)repartoValueMap.get("fechaEntrega"));
+                                reparto.setIncidencia((Boolean)repartoValueMap.get("incidencia"));
+
+                                Log.i(LOG_TAG, "Reparto=" + reparto.toString());
+
                                 repartoList.add(reparto);
                             }
                             mRepartidorSet.setRepartos(repartoList);
                             break;
                     }
                 }
+                adapter = new RepartoAdapter(
+                        getApplicationContext(),
+                        R.layout.listado_repartos,
+                        mRepartidorSet.getRepartos());
+
+                repartosListView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -93,13 +107,6 @@ public class RepartosActivity extends Activity {
             }
         });
 
-        adapter = new RepartoAdapter(
-                this,
-                R.layout.listado_repartos,
-                mRepartidorSet.getRepartos());
-
-        repartosListView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
         setResult(RESULT_OK);
 
     }

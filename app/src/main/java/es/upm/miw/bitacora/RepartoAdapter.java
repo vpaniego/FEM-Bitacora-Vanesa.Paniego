@@ -3,11 +3,14 @@ package es.upm.miw.bitacora;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -18,6 +21,8 @@ import es.upm.miw.bitacora.models.Reparto;
 
 
 public class RepartoAdapter extends ArrayAdapter<Reparto> {
+
+    final static String LOG_TAG = "MiW";
 
     private Context context;
     private List<Reparto> repartos;
@@ -42,24 +47,35 @@ public class RepartoAdapter extends ArrayAdapter<Reparto> {
             view = (LinearLayout) inflater.inflate(resourceId, parent, false);
         }
 
+        if(repartos != null) {
+            Log.i(LOG_TAG, "Adapter getView " + repartos.size());
+        }
+
         Reparto reparto = repartos.get(position);
 
         if (reparto != null) {
 
-            TextView tvTitle = view.findViewById(R.id.tvTitle);
-            tvTitle.setText(reparto.getTitle());
+            TextView tvTitulo = view.findViewById(R.id.tvTitulo);
+            tvTitulo.setText(reparto.getTitulo());
 
-            //TextView tvFecha = view.findViewById(R.id.tvFecha);
-            //tvFecha.setText(format(repartidor.getFecha()));
+            Log.i(LOG_TAG, "Titulo reparto " + reparto.getTitulo());
 
+            TextView tvFechaRepcion = view.findViewById(R.id.tvFechaRecepcion);
+            tvFechaRepcion.setText(format(reparto.getFechaRecepcion()));
+
+            TextView tvFechaEntrega = view.findViewById(R.id.tvFechaEntrega);
+            tvFechaEntrega.setText(format(reparto.getFechaEntrega()));
+
+            CheckBox chIncidencia = view.findViewById(R.id.chIncidencia);
+            chIncidencia.setActivated(reparto.getIncidencia());
         }
 
         return view;
     }
 
-    public String format(Date fechaReparto) {
+    public String format(long fechaReparto) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        return sdf.format(fechaReparto);
+        return sdf.format(new Date(fechaReparto));
     }
 
     public void removeAllFromView() {

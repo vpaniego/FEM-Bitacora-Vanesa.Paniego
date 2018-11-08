@@ -5,28 +5,64 @@ import com.google.firebase.database.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public class Reparto {
 
-    public String title;
+    public String titulo;
+
+    public long fechaRecepcion;
+
+    public long fechaEntrega;
+
+    public Boolean incidencia = Boolean.FALSE;
 
     public Reparto() {
         // Default constructor required for calls to DataSnapshot.getValue(Repartidor.class)
     }
 
-    public Reparto(String title) {
-        this.title = title;
+    public Reparto(String titulo, long fechaRecepcion, long fechaEntrega, Boolean incidencia) {
+        this.titulo = titulo;
+        this.fechaRecepcion = fechaRecepcion;
+        this.fechaEntrega = fechaEntrega;
+        this.incidencia = incidencia;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public long getFechaRecepcion() {
+        return fechaRecepcion;
+    }
+
+    public void setFechaRecepcion(long fechaRecepcion) {
+        this.fechaRecepcion = fechaRecepcion;
+    }
+
+    public long getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(long fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
+    }
+
+    public Boolean getIncidencia() {
+        return incidencia;
+    }
+
+    public void setIncidencia(Boolean incidencia) {
+        this.incidencia = incidencia;
     }
 
     @Override
     public String toString() {
         return "Reparto{" +
-                "title='" + title + '\'' +
+                "titulo='" + titulo + '\'' +
+                ", fechaRecepcion=" + fechaRecepcion +
+                ", fechaEntrega=" + fechaEntrega +
+                ", incidencia=" + incidencia +
                 '}';
     }
 }

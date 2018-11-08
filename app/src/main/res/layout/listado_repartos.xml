@@ -4,33 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <!-- <TextView
-        android:id="@+id/tvUsername"
+    <TextView
+        android:id="@+id/tvTitulo"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="45"
-        android:textAlignment="center" />
+        android:layout_weight="50"
+        android:gravity="center"/>
 
     <TextView
-        android:id="@+id/tvEmail"
+        android:id="@+id/tvFechaRecepcion"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="25"
-        android:textAlignment="center"/> -->
+        android:layout_weight="20"
+        android:gravity="center"/>
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvFechaEntrega"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="25"
-        android:textAlignment="center"/>
+        android:layout_weight="20"
+        android:gravity="center"/>
 
-    <!-- <TextView
-        android:id="@+id/tvFecha"
+    <CheckBox
+        android:id="@+id/chIncidencia"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="40"
-        android:textAlignment="center"/> -->
-
+        android:layout_weight="10"
+        android:gravity="center"
+        android:enabled="false"/>
 
 </LinearLayout>
