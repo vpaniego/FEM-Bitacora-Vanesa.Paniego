@@ -35,8 +35,7 @@
             android:label="@string/detalleRepartoText"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-            tools:ignore="GoogleAppIndexingWarning"
-            android:parentActivityName=".RepartosActivity">
+            tools:ignore="GoogleAppIndexingWarning">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -46,8 +45,7 @@
             android:label="@string/incidenciaText"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-            tools:ignore="GoogleAppIndexingWarning"
-            android:parentActivityName=".DetalleRepartoActivity">
+            tools:ignore="GoogleAppIndexingWarning">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
