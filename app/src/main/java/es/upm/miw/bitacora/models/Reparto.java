@@ -2,6 +2,8 @@ package es.upm.miw.bitacora.models;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.util.ArrayList;
+
 @IgnoreExtraProperties
 public class Reparto {
 
@@ -11,17 +13,20 @@ public class Reparto {
 
     public long fechaEntrega;
 
-    public Boolean incidencia = Boolean.FALSE;
+    public String direccion;
+
+    public ArrayList<Incidencia> incidencias = new ArrayList<>();
 
     public Reparto() {
         // Default constructor required for calls to DataSnapshot.getValue(Repartidor.class)
     }
 
-    public Reparto(String titulo, long fechaRecepcion, long fechaEntrega, Boolean incidencia) {
+    public Reparto(String titulo, long fechaRecepcion, long fechaEntrega, String direccion, ArrayList<Incidencia> incidencias) {
         this.titulo = titulo;
         this.fechaRecepcion = fechaRecepcion;
         this.fechaEntrega = fechaEntrega;
-        this.incidencia = incidencia;
+        this.direccion = direccion;
+        this.incidencias = incidencias;
     }
 
     public String getTitulo() {
@@ -48,12 +53,12 @@ public class Reparto {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public Boolean getIncidencia() {
-        return incidencia;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setIncidencia(Boolean incidencia) {
-        this.incidencia = incidencia;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     @Override
@@ -62,7 +67,8 @@ public class Reparto {
                 "titulo='" + titulo + '\'' +
                 ", fechaRecepcion=" + fechaRecepcion +
                 ", fechaEntrega=" + fechaEntrega +
-                ", incidencia=" + incidencia +
+                ", direccion='" + direccion + '\'' +
+                ", incidencias=" + incidencias +
                 '}';
     }
 }

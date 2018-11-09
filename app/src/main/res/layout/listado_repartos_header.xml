@@ -1,35 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tvTitulo"
+        android:id="@+id/tvTituloHeader"
+        android:text="@string/tvTituloHeaderText"
+        android:textColor="@color/colorAccent"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="30"
         android:gravity="left" />
 
     <TextView
-        android:id="@+id/tvDireccion"
+        android:id="@+id/tvDireccionHeader"
+        android:text="@string/tvDireccionHeaderText"
+        android:textColor="@color/colorAccent"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="50"
         android:gravity="left" />
 
     <TextView
-        android:id="@+id/tvFechaRecepcion"
+        android:id="@+id/tvFechaRecepcionHeader"
+        android:text="@string/tvFechaRecepcionHeaderText"
+        android:textColor="@color/colorAccent"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="10"
-        android:gravity="left" />
+        android:gravity="left"/>
 
     <TextView
-        android:id="@+id/tvFechaEntrega"
+        android:id="@+id/tvFechaEntregaHeader"
+        android:text="@string/tvFechaEntregaHeaderText"
+        android:textColor="@color/colorAccent"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="10"
-        android:gravity="left" />
+        android:gravity="left"/>
+
+
 
 </LinearLayout>

@@ -11,7 +11,7 @@ public class RegistrarIncidenciaDialogFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final RepartosActivity activity = (RepartosActivity) getActivity();
+        final BestSellerActivity activity = (BestSellerActivity) getActivity();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder

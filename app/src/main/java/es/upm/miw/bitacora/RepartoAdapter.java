@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -47,7 +46,7 @@ public class RepartoAdapter extends ArrayAdapter<Reparto> {
             view = (LinearLayout) inflater.inflate(resourceId, parent, false);
         }
 
-        if(repartos != null) {
+        if (repartos != null) {
             Log.i(LOG_TAG, "Adapter getView " + repartos.size());
         }
 
@@ -58,24 +57,27 @@ public class RepartoAdapter extends ArrayAdapter<Reparto> {
             TextView tvTitulo = view.findViewById(R.id.tvTitulo);
             tvTitulo.setText(reparto.getTitulo());
 
-            Log.i(LOG_TAG, "Titulo reparto " + reparto.getTitulo());
-
             TextView tvFechaRepcion = view.findViewById(R.id.tvFechaRecepcion);
             tvFechaRepcion.setText(format(reparto.getFechaRecepcion()));
 
             TextView tvFechaEntrega = view.findViewById(R.id.tvFechaEntrega);
             tvFechaEntrega.setText(format(reparto.getFechaEntrega()));
 
-            CheckBox chIncidencia = view.findViewById(R.id.chIncidencia);
-            chIncidencia.setActivated(reparto.getIncidencia());
+            TextView tvDireccion = view.findViewById(R.id.tvDireccion);
+            tvDireccion.setText(reparto.getDireccion());
         }
 
         return view;
     }
 
     public String format(long fechaReparto) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        return sdf.format(new Date(fechaReparto));
+        if (fechaReparto > 0) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            return sdf.format(new Date(fechaReparto));
+        } else {
+            return "";
+        }
+
     }
 
     public void removeAllFromView() {

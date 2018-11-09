@@ -25,9 +25,17 @@
 
     <string name="finalizarRepartoText">Finalizar reparto</string>
     <!-- Dialogo Finalizar reparto -->
-    <string name="txtDialogoFinalizarRepartoTitulo">Finalizar incidencia</string>
+    <string name="txtDialogoFinalizarRepartoTitulo">Finalizar reparto</string>
     <string name="txtDialogoFinalizarRepartoPregunta">¿Desea finalizar la entrega?</string>
     <string name="txtDialogoFinalizarRepartoAfirmativo">Sí</string>
     <string name="txtDialogoFinalizarRepartoNegativo">No</string>
+
+    <!-- ListView Header -->
+    <string name="tvTituloHeaderText">Título</string>
+    <string name="tvDireccionHeaderText">Dirección</string>
+    <string name="tvFechaRecepcionHeaderText">Fecha recepción</string>
+    <string name="tvFechaEntregaHeaderText">Fecha entrega</string>
+
+    <string name="bestSellerText">Detalle Best Seller</string>
 
 </resources>
