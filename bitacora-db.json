@@ -1,25 +1,49 @@
 {
   "repartidores": {
     "QtvKK8VIF2aNjJBSKU7jnZu4ZIh1" : {
-      "pedidos" : {
+      "username" : "repartidor1",
+      "email" : "repartidor1@correo.es",
+      "repartos" : {
         "9780399178573" : {
-          "title" : "I GIVE YOU MY BODY"
+          "titulo" : "I GIVE YOU MY BODY",
+          "fechaRecepcion" : 1541637858000,
+          "fechaEntrega" : 0,
+          "direccion" : "Librería San Pablo, Calle de Alcalá, 387, 28027 Madrid",
+          "entregado" : false
         },
         "9780871404428" : {
-          "title" : "MOST BLESSED OF THE PATRIARCHS"
+          "titulo" : "MOST BLESSED OF THE PATRIARCHS",
+          "fechaRecepcion" : 1541637858000,
+          "fechaEntrega" : 0,
+          "direccion" : "Librería Dos Castillas, Calle de José del Hierro, 46, 28027 Madrid",
+          "entregado" : false
         }
       }
     },
     "5eDJflUQt5Z3umnWCw8NCw8Paxy2" : {
-      "pedidos" : {
+      "username" : "repartidor2",
+      "email" : "repartidor2@correo.es",
+      "repartos" : {
         "9780062273123": {
-          "title" : "ASKGARYVEE"
+          "titulo" : "ASKGARYVEE",
+          "fechaRecepcion" : 1541637858000,
+          "fechaEntrega" : 0,
+          "direccion" : "Librería Polifemo, Av. de Bruselas, 44, 28028 Madrid",
+          "entregado" : false
         },
         "9781984801838" : {
-          "title" : "NEVERAGAIN"
+          "titulo" : "NEVERAGAIN",
+          "fechaRecepcion" : 1541637858000,
+          "fechaEntrega" : 0,
+          "direccion" : "Librería Miraguano, Calle de Hermosilla, 104, 28009 Madrid",
+          "entregado" : false
         },
         "9780698193611" : {
-          "title" : "TIL DEATH DO US PART"
+          "titulo" : "TIL DEATH DO US PART",
+          "fechaRecepcion" : 1541637858000,
+          "fechaEntrega" : 0,
+          "direccion" : "Librería Felipa, Calle del Pilar de Zaragoza, 37, 28028 Madrid",
+          "entregado" : false
         }
       }
     }

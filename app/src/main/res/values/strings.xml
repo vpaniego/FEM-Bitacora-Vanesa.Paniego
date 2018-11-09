@@ -9,4 +9,39 @@
 
     <string name="reparto_button">Repartos</string>
 
+    <!-- Mostrar Repartos -->
+    <string name="textDialogoRepartosTitulo">Repartos</string>
+    <string name="headerNombreRepartidor">Repartidor</string>
+    <string name="headerEmail">Email</string>
+    <!-- <string name="headerFecha">Fecha</string> -->
+
+    <string name="repartosText">Repartos</string>
+    <string name="registrarIncidenciaText">Registrar incidencia</string>
+    <!-- Dialogo Registrar incidencia -->
+    <string name="txtDialogoRegistrarIncidenciaTitulo">Registrar incidencia</string>
+    <string name="txtDialogoRegistrarIncidenciaPregunta">Se ha producido una incidencia. ¿Desea registrarla?</string>
+    <string name="txtDialogoRegistrarIncidenciaAfirmativo">Sí</string>
+    <string name="txtDialogoRegistrarIncidenciaNegativo">No</string>
+
+    <string name="finalizarRepartoText">Finalizar reparto</string>
+    <!-- Dialogo Finalizar reparto -->
+    <string name="txtDialogoFinalizarRepartoTitulo">Finalizar reparto</string>
+    <string name="txtDialogoFinalizarRepartoPregunta">¿Desea finalizar la entrega?</string>
+    <string name="txtDialogoFinalizarRepartoAfirmativo">Sí</string>
+    <string name="txtDialogoFinalizarRepartoNegativo">No</string>
+
+    <!-- ListView Header -->
+    <string name="tvTituloHeaderText">Título</string>
+    <string name="tvDireccionHeaderText">Dirección</string>
+    <string name="tvFechaRecepcionHeaderText">Fecha recepción</string>
+    <string name="tvFechaEntregaHeaderText">Fecha entrega</string>
+    <string name="tvEntregadoHeaderText">Entregado</string>
+
+    <string name="detalleRepartoText">Detalle Reparto</string>
+
+    <string name="incidenciaText">Registrar datos incidencia</string>
+    <string name="tvObservaciones">Observaciones</string>
+    <string name="hintObservaciones">Observaciones incidencia</string>
+    <string name="btnIncidencia">Guardar</string>
+
 </resources>

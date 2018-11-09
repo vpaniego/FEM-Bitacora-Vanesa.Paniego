@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvTituloHeader"
+        android:text="@string/tvTituloHeaderText"
+        android:textColor="@color/colorAccent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="30"
+        android:gravity="left" />
+
+    <TextView
+        android:id="@+id/tvDireccionHeader"
+        android:text="@string/tvDireccionHeaderText"
+        android:textColor="@color/colorAccent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="40"
+        android:gravity="left" />
+
+    <TextView
+        android:id="@+id/tvFechaRecepcionHeader"
+        android:text="@string/tvFechaRecepcionHeaderText"
+        android:textColor="@color/colorAccent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:gravity="left"/>
+
+    <TextView
+        android:id="@+id/tvFechaEntregaHeader"
+        android:text="@string/tvFechaEntregaHeaderText"
+        android:textColor="@color/colorAccent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:gravity="left"/>
+
+    <TextView
+        android:id="@+id/tvEntregadoHeader"
+        android:text="@string/tvEntregadoHeaderText"
+        android:textColor="@color/colorAccent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:gravity="left"/>
+
+
+
+</LinearLayout>

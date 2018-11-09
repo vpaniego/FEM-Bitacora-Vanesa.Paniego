@@ -2,7 +2,9 @@ package es.upm.miw.bitacora;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
@@ -13,8 +15,6 @@ import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 
@@ -24,12 +24,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private DatabaseReference mFirebaseDatabase;
+
+    private String firebaseAuthCurrentUser;
 
     private static final int RC_SIGN_IN = 2018;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.logoutButton).setOnClickListener(this);
@@ -45,6 +46,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     Toast.makeText(MainActivity.this, getString(R.string.firebase_user_fmt, username), Toast.LENGTH_LONG).show();
                     Log.i(LOG_TAG, "onAuthStateChanged() " + getString(R.string.firebase_user_fmt, username));
                     ((TextView) findViewById(R.id.textView)).setText(getString(R.string.firebase_user_fmt, username));
+
+                    firebaseAuthCurrentUser = user.getUid();
+
                 } else {
                     // user is signed out
                     startActivityForResult(
@@ -61,10 +65,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 }
             }
         };
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference();
-        if(mFirebaseDatabase != null){
-            Log.i(LOG_TAG, "existe instancia mFirebaseDatabase ");
-        }
 
     }
 
@@ -108,9 +108,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void onClickRepartos(View view) {
-        Log.i(LOG_TAG, "onClickRepartos ");
-        //startActivity(new Intent(this, BestSellersActivity.class));
+        Intent intent = new Intent(this, RepartosActivity.class);
+        //attach the key value pair using putExtra to this intent
+        intent.putExtra("FIREBASE_AUTH_CURRENT_USER", firebaseAuthCurrentUser);
+        startActivity(intent);
+
     }
-
-
 }
