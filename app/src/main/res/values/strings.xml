@@ -39,4 +39,9 @@
 
     <string name="detalleRepartoText">Detalle Reparto</string>
 
+    <string name="incidenciaText">Registrar datos incidencia</string>
+    <string name="tvObservaciones">Observaciones</string>
+    <string name="hintObservaciones">Observaciones incidencia</string>
+    <string name="btnIncidencia">Guardar</string>
+
 </resources>

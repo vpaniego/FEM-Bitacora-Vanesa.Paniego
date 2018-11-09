@@ -91,6 +91,14 @@ public class Reparto implements Serializable {
         this.entregado = entregado;
     }
 
+    public void addIncidencia(Incidencia incidencia){
+        assert incidencia != null;
+        if (incidencias == null || incidencias.isEmpty()){
+            incidencias = new ArrayList<>();
+        }
+        incidencias.add(incidencia);
+    }
+
     @Override
     public String toString() {
         return "Reparto{" +

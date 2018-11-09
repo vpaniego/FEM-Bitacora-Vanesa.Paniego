@@ -35,6 +35,8 @@ public class DetalleRepartoActivity extends Activity {
         itemReparto = getItemRepartoSelected();
         currentUserID = getCurrentUser();
 
+        mRepartidoresReference = FirebaseDatabase.getInstance().getReference();
+
         //TODO: Call APIRest
 
 
@@ -43,8 +45,6 @@ public class DetalleRepartoActivity extends Activity {
 
         TextView tvItemTitle = findViewById(R.id.tvItemTitle);
         tvItemTitle.setText(itemReparto.getTitulo());
-
-        setResult(RESULT_OK);
     }
 
     private String getCurrentUser() {
@@ -93,7 +93,15 @@ public class DetalleRepartoActivity extends Activity {
 
         itemReparto.setEntregado(true);
 
-        mRepartidoresReference = FirebaseDatabase.getInstance().getReference();
         mRepartidoresReference.child("repartidores").child(currentUserID).child("repartos").child(itemReparto.getId()).setValue(itemReparto);
+    }
+
+    public void registrarIncidencia() {
+        Intent intent = new Intent(this, IncidenciaActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("REPARTO", itemReparto);
+        intent.putExtras(bundle);
+        intent.putExtra("FIREBASE_AUTH_CURRENT_USER", currentUserID);
+        startActivity(intent);
     }
 }

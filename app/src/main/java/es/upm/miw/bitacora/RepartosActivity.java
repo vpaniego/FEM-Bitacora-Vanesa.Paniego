@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import es.upm.miw.bitacora.models.Incidencia;
 import es.upm.miw.bitacora.models.Repartidor;
 import es.upm.miw.bitacora.models.Reparto;
 
@@ -36,6 +37,7 @@ public class RepartosActivity extends Activity {
 
     String currentUserID;
 
+    private static final int RC_REPARTOS_AC = 112018;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +91,7 @@ public class RepartosActivity extends Activity {
                                 reparto.setFechaEntrega((Long) repartoValueMap.get("fechaEntrega"));
                                 reparto.setDireccion((String) repartoValueMap.get("direccion"));
                                 reparto.setEntregado((Boolean) repartoValueMap.get("entregado"));
+                                reparto.setIncidencias(getIncidenciasFromRepartoValueMap(repartoValueMap.get("incidencias")));
 
                                 repartoList.add(reparto);
                             }
@@ -137,23 +140,45 @@ public class RepartosActivity extends Activity {
             }
         });
 
-        setResult(RESULT_OK);
-
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-            if (resultCode == RESULT_OK) {
-                Toast.makeText(this, R.string.signed_in, Toast.LENGTH_SHORT).show();
-                Log.i(LOG_TAG, "onActivityResult " + getString(R.string.signed_in));
-            } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, R.string.signed_cancelled, Toast.LENGTH_SHORT).show();
-                Log.i(LOG_TAG, "onActivityResult " + getString(R.string.signed_cancelled));
-                finish();
+    public ArrayList<Incidencia> getIncidenciasFromRepartoValueMap(Object resultadoMapIncidencias) {
+        ArrayList<Incidencia> incidencias = new ArrayList<>();
+
+        if (resultadoMapIncidencias instanceof ArrayList) {
+
+            incidencias = (ArrayList) resultadoMapIncidencias;
+
+        } else if (resultadoMapIncidencias instanceof Map) {
+
+            Map<String, ?> mapIncidencias = (Map<String, ?>) resultadoMapIncidencias;
+
+
+            if (mapIncidencias == null) {
+                /* log a warning, DataSnapshot.getValue may return null */
+                Log.w(LOG_TAG, "resultadoMapIncidencias may return null");
+            } else {
+                Incidencia incidencia = new Incidencia();
+
+
+                for (Map.Entry<String, ?> incidenciaSetEntry : mapIncidencias.entrySet()) {
+                    switch (incidenciaSetEntry.getKey()) {
+                        case "observaciones":
+                            incidencia.setObservaciones((String) incidenciaSetEntry.getValue());
+                            Log.i(LOG_TAG, "incidencia.observaciones" + incidencia.getObservaciones());
+                            break;
+                        case "fecha":
+                            incidencia.setFecha((Long) incidenciaSetEntry.getValue());
+                            Log.i(LOG_TAG, "incidencia.fecha" + incidencia.getFecha());
+                            break;
+                    }
+                    incidencias.add(incidencia);
+                }
             }
         }
+
+        return incidencias;
+
     }
 
 }

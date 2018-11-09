@@ -112,5 +112,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         //attach the key value pair using putExtra to this intent
         intent.putExtra("FIREBASE_AUTH_CURRENT_USER", firebaseAuthCurrentUser);
         startActivity(intent);
+
     }
 }
