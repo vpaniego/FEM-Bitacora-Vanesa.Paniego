@@ -34,6 +34,8 @@ public class RepartosActivity extends Activity {
 
     private DatabaseReference mRepartidoresReference;
 
+    String currentUserID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class RepartosActivity extends Activity {
         setContentView(R.layout.activity_repartos);
 
         Intent intent = getIntent();
-        String currentUserID = intent.getStringExtra("FIREBASE_AUTH_CURRENT_USER");
+        currentUserID = intent.getStringExtra("FIREBASE_AUTH_CURRENT_USER");
 
         final Repartidor mRepartidorSet = new Repartidor();
 
@@ -81,10 +83,12 @@ public class RepartosActivity extends Activity {
                                 Map<String, ?> repartoValueMap = (Map<String, ?>) repartoEntry.getValue();
                                 Reparto reparto = new Reparto();
                                 // Note that the following calls are based on assumption...
+                                reparto.setId((String) repartoEntry.getKey());
                                 reparto.setTitulo((String) repartoValueMap.get("titulo"));
                                 reparto.setFechaRecepcion((Long) repartoValueMap.get("fechaRecepcion"));
                                 reparto.setFechaEntrega((Long) repartoValueMap.get("fechaEntrega"));
                                 reparto.setDireccion((String) repartoValueMap.get("direccion"));
+                                reparto.setEntregado((Boolean) repartoValueMap.get("entregado"));
 
                                 repartoList.add(reparto);
                             }
@@ -112,7 +116,12 @@ public class RepartosActivity extends Activity {
                                 .append("): ")
                                 .append(value.getTitulo());
 
-                        startActivity(new Intent(getApplicationContext(), BestSellerActivity.class));
+                        Intent intent = new Intent(getApplicationContext(), DetalleRepartoActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("REPARTO", value);
+                        intent.putExtras(bundle);
+                        intent.putExtra("FIREBASE_AUTH_CURRENT_USER", currentUserID);
+                        startActivity(intent);
 
                         Toast.makeText(getApplicationContext(), texto, Toast.LENGTH_LONG).show();
                     }

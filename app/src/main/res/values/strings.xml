@@ -35,7 +35,8 @@
     <string name="tvDireccionHeaderText">Dirección</string>
     <string name="tvFechaRecepcionHeaderText">Fecha recepción</string>
     <string name="tvFechaEntregaHeaderText">Fecha entrega</string>
+    <string name="tvEntregadoHeaderText">Entregado</string>
 
-    <string name="bestSellerText">Detalle Best Seller</string>
+    <string name="detalleRepartoText">Detalle Reparto</string>
 
 </resources>

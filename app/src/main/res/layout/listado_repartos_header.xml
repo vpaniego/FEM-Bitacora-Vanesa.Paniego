@@ -19,7 +19,7 @@
         android:textColor="@color/colorAccent"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="50"
+        android:layout_weight="40"
         android:gravity="left" />
 
     <TextView
@@ -34,6 +34,15 @@
     <TextView
         android:id="@+id/tvFechaEntregaHeader"
         android:text="@string/tvFechaEntregaHeaderText"
+        android:textColor="@color/colorAccent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:gravity="left"/>
+
+    <TextView
+        android:id="@+id/tvEntregadoHeader"
+        android:text="@string/tvEntregadoHeaderText"
         android:textColor="@color/colorAccent"
         android:layout_width="0dp"
         android:layout_height="match_parent"

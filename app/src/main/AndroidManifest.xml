@@ -31,8 +31,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BestSellerActivity"
-            android:label="@string/bestSellerText"
+            android:name=".DetalleRepartoActivity"
+            android:label="@string/detalleRepartoText"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning"

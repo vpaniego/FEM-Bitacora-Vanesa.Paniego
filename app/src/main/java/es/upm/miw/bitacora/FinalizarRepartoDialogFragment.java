@@ -11,7 +11,7 @@ public class FinalizarRepartoDialogFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final BestSellerActivity activity = (BestSellerActivity) getActivity();
+        final DetalleRepartoActivity activity = (DetalleRepartoActivity) getActivity();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder
@@ -22,10 +22,9 @@ public class FinalizarRepartoDialogFragment extends DialogFragment {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //String messageEliminados = "Eliminados " + String.valueOf(activity.resultadoRepository.removeAll()) + " resultados";
+                                activity.finalizarReparto();
                                 Toast.makeText(activity.getBaseContext(), "Finalizar reparto.Entrega satistactoria",
-                                        Toast.LENGTH_SHORT).show();
-                                //activity.adapter.removeAllFromView();
+                                            Toast.LENGTH_SHORT).show();
                             }
                         }
                 )

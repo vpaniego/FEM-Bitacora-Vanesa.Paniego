@@ -6,11 +6,12 @@
     android:orientation="vertical"
     tools:context=".RepartosActivity">
 
+
     <ListView
         android:id="@+id/repartosListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true">
-    </ListView>
+        android:clickable="true"></ListView>
+
 
 </LinearLayout>

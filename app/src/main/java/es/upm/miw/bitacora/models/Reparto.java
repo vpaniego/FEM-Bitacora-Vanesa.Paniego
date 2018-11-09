@@ -2,10 +2,13 @@ package es.upm.miw.bitacora.models;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 @IgnoreExtraProperties
-public class Reparto {
+public class Reparto implements Serializable {
+
+    public String id;
 
     public String titulo;
 
@@ -17,16 +20,27 @@ public class Reparto {
 
     public ArrayList<Incidencia> incidencias = new ArrayList<>();
 
+    public boolean entregado = Boolean.FALSE;
+
     public Reparto() {
         // Default constructor required for calls to DataSnapshot.getValue(Repartidor.class)
     }
 
-    public Reparto(String titulo, long fechaRecepcion, long fechaEntrega, String direccion, ArrayList<Incidencia> incidencias) {
+    public Reparto(String titulo, long fechaRecepcion, long fechaEntrega, String direccion, ArrayList<Incidencia> incidencias, boolean entregado) {
         this.titulo = titulo;
         this.fechaRecepcion = fechaRecepcion;
         this.fechaEntrega = fechaEntrega;
         this.direccion = direccion;
         this.incidencias = incidencias;
+        this.entregado = entregado;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitulo() {
@@ -61,14 +75,32 @@ public class Reparto {
         this.direccion = direccion;
     }
 
+    public ArrayList<Incidencia> getIncidencias() {
+        return incidencias;
+    }
+
+    public void setIncidencias(ArrayList<Incidencia> incidencias) {
+        this.incidencias = incidencias;
+    }
+
+    public boolean isEntregado() {
+        return entregado;
+    }
+
+    public void setEntregado(boolean entregado) {
+        this.entregado = entregado;
+    }
+
     @Override
     public String toString() {
         return "Reparto{" +
-                "titulo='" + titulo + '\'' +
+                "id='" + id + '\'' +
+                ", titulo='" + titulo + '\'' +
                 ", fechaRecepcion=" + fechaRecepcion +
                 ", fechaEntrega=" + fechaEntrega +
                 ", direccion='" + direccion + '\'' +
                 ", incidencias=" + incidencias +
+                ", entregado=" + entregado +
                 '}';
     }
 }

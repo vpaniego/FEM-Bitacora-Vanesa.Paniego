@@ -15,7 +15,7 @@
         android:id="@+id/tvDireccion"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="50"
+        android:layout_weight="40"
         android:gravity="left" />
 
     <TextView
@@ -27,6 +27,13 @@
 
     <TextView
         android:id="@+id/tvFechaEntrega"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:gravity="left" />
+
+    <TextView
+        android:id="@+id/tvEntregado"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="10"

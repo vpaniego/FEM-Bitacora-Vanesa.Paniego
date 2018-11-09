@@ -8,13 +8,15 @@
           "titulo" : "I GIVE YOU MY BODY",
           "fechaRecepcion" : 1541637858000,
           "fechaEntrega" : 0,
-          "direccion" : "Librería San Pablo, Calle de Alcalá, 387, 28027 Madrid"
+          "direccion" : "Librería San Pablo, Calle de Alcalá, 387, 28027 Madrid",
+          "entregado" : false
         },
         "9780871404428" : {
           "titulo" : "MOST BLESSED OF THE PATRIARCHS",
           "fechaRecepcion" : 1541637858000,
           "fechaEntrega" : 0,
-          "direccion" : "Librería Dos Castillas, Calle de José del Hierro, 46, 28027 Madrid"
+          "direccion" : "Librería Dos Castillas, Calle de José del Hierro, 46, 28027 Madrid",
+          "entregado" : false
         }
       }
     },
@@ -26,19 +28,22 @@
           "titulo" : "ASKGARYVEE",
           "fechaRecepcion" : 1541637858000,
           "fechaEntrega" : 0,
-          "direccion" : "Librería Polifemo, Av. de Bruselas, 44, 28028 Madrid"
+          "direccion" : "Librería Polifemo, Av. de Bruselas, 44, 28028 Madrid",
+          "entregado" : false
         },
         "9781984801838" : {
           "titulo" : "NEVERAGAIN",
           "fechaRecepcion" : 1541637858000,
           "fechaEntrega" : 0,
-          "direccion" : "Librería Miraguano, Calle de Hermosilla, 104, 28009 Madrid"
+          "direccion" : "Librería Miraguano, Calle de Hermosilla, 104, 28009 Madrid",
+          "entregado" : false
         },
         "9780698193611" : {
           "titulo" : "TIL DEATH DO US PART",
           "fechaRecepcion" : 1541637858000,
           "fechaEntrega" : 0,
-          "direccion" : "Librería Felipa, Calle del Pilar de Zaragoza, 37, 28028 Madrid"
+          "direccion" : "Librería Felipa, Calle del Pilar de Zaragoza, 37, 28028 Madrid",
+          "entregado" : false
         }
       }
     }
