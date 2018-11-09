@@ -5,21 +5,21 @@ import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Date;
-import java.util.List;
 
-import es.upm.miw.bitacora.models.BestSeller;
 import es.upm.miw.bitacora.models.Reparto;
+import es.upm.miw.bitacora.models.Result;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,7 +38,7 @@ public class DetalleRepartoActivity extends Activity {
 
     private DatabaseReference mRepartidoresReference;
 
-    private RepartoBestSellerRESTAPIService apiService;
+    private BookNYTResultRESTAPIService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +61,12 @@ public class DetalleRepartoActivity extends Activity {
                 .build();
 
         Log.i(LOG_TAG, "onCreateRepartoBestSellersActivity antes de crear apiservice");
-        apiService = retrofit.create(RepartoBestSellerRESTAPIService.class);
+        apiService = retrofit.create(BookNYTResultRESTAPIService.class);
 
-        //String queryByIsbn13 = "history.json?api-key=2ae3e47fef9844b5a3ee16e3be52e734&isbn=" +itemReparto.getId();
-        Call<BestSeller> call_async = apiService.getBestSellerByIsbn(itemReparto.getId());
+        Call<Result> call_async = apiService.getBestSellerByIsbn(itemReparto.getId());
 
         // Asíncrona
-        call_async.enqueue(new Callback<BestSeller>() {
+        call_async.enqueue(new Callback<Result>() {
 
             /**
              * Invoked for a received HTTP response.
@@ -76,21 +75,15 @@ public class DetalleRepartoActivity extends Activity {
              * Call {@link Response#isSuccessful()} to determine if the response indicates success.
              */
             @Override
-            public void onResponse(Call<BestSeller> call, Response<BestSeller> response) {
-                if (response.isSuccessful()) {
-                    BestSeller bestSeller = response.body();
-                    if(bestSeller != null) {
-                        Log.i(LOG_TAG, "isSuccessful " + bestSeller.toString());
+            public void onResponse(Call<Result> call, Response<Result> response) {
 
-                        TextView tvItemAuthor = findViewById(R.id.tvItemAuthor);
-                        tvItemAuthor.setText(bestSeller.getAuthor());
-
-                        TextView tvItemTitle = findViewById(R.id.tvItemTitle);
-                        tvItemTitle.setText(bestSeller.getTitle());
-                    }
+                Result result = response.body();
+                if (null != result) {
+                    Log.i(LOG_TAG, "isSuccess resultado " + result.toString());
                 } else {
-                    Log.i(LOG_TAG, "not Successful " + response.toString());
+                    Log.i(LOG_TAG, "null resultado ");
                 }
+
             }
 
             /**
@@ -98,7 +91,7 @@ public class DetalleRepartoActivity extends Activity {
              * exception occurred creating the request or processing the response.
              */
             @Override
-            public void onFailure(Call<BestSeller> call, Throwable t) {
+            public void onFailure(Call<Result> call, Throwable t) {
                 Toast.makeText(
                         getApplicationContext(),
                         "ERROR: " + t.getMessage(),
@@ -177,5 +170,4 @@ public class DetalleRepartoActivity extends Activity {
         intent.putExtra("FIREBASE_AUTH_CURRENT_USER", currentUserID);
         startActivity(intent);
     }
-
 }

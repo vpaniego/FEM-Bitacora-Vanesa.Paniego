@@ -7,142 +7,58 @@ import com.google.gson.annotations.SerializedName;
 
 public class BestSeller {
 
-    @SerializedName("age_group")
+    @SerializedName("copyright")
     @Expose
-    private String ageGroup;
-    @SerializedName("author")
+    private String copyright;
+    @SerializedName("num_results")
     @Expose
-    private String author;
-    @SerializedName("contributor")
+    private Integer numResults;
+    @SerializedName("results")
     @Expose
-    private String contributor;
-    @SerializedName("contributor_note")
+    private List<Result> results = null;
+    @SerializedName("status")
     @Expose
-    private String contributorNote;
-    @SerializedName("description")
-    @Expose
-    private String description;
-    @SerializedName("isbns")
-    @Expose
-    private List<Isbn> isbns = null;
-    @SerializedName("price")
-    @Expose
-    private Integer price;
-    @SerializedName("publisher")
-    @Expose
-    private String publisher;
-    @SerializedName("ranks_history")
-    @Expose
-    private List<RanksHistory> ranksHistory = null;
-    @SerializedName("reviews")
-    @Expose
-    private List<Review> reviews = null;
-    @SerializedName("title")
-    @Expose
-    private String title;
+    private String status;
 
-    public String getAgeGroup() {
-        return ageGroup;
+    public String getCopyright() {
+        return copyright;
     }
 
-    public void setAgeGroup(String ageGroup) {
-        this.ageGroup = ageGroup;
+    public void setCopyright(String copyright) {
+        this.copyright = copyright;
     }
 
-    public String getAuthor() {
-        return author;
+    public Integer getNumResults() {
+        return numResults;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setNumResults(Integer numResults) {
+        this.numResults = numResults;
     }
 
-    public String getContributor() {
-        return contributor;
+    public List<Result> getResults() {
+        return results;
     }
 
-    public void setContributor(String contributor) {
-        this.contributor = contributor;
+    public void setResults(List<Result> results) {
+        this.results = results;
     }
 
-    public String getContributorNote() {
-        return contributorNote;
+    public String getStatus() {
+        return status;
     }
 
-    public void setContributorNote(String contributorNote) {
-        this.contributorNote = contributorNote;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public List<Isbn> getIsbns() {
-        return isbns;
-    }
-
-    public void setIsbns(List<Isbn> isbns) {
-        this.isbns = isbns;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-
-    public List<RanksHistory> getRanksHistory() {
-        return ranksHistory;
-    }
-
-    public void setRanksHistory(List<RanksHistory> ranksHistory) {
-        this.ranksHistory = ranksHistory;
-    }
-
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
     public String toString() {
         return "BestSeller{" +
-                "ageGroup='" + ageGroup + '\'' +
-                ", author='" + author + '\'' +
-                ", contributor='" + contributor + '\'' +
-                ", contributorNote='" + contributorNote + '\'' +
-                ", description='" + description + '\'' +
-                ", isbns=" + isbns +
-                ", price=" + price +
-                ", publisher='" + publisher + '\'' +
-                ", ranksHistory=" + ranksHistory +
-                ", reviews=" + reviews +
-                ", title='" + title + '\'' +
+                "copyright='" + copyright + '\'' +
+                ", numResults=" + numResults +
+                ", results=" + results +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

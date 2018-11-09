@@ -117,4 +117,19 @@ public class RanksHistory {
         this.weeksOnList = weeksOnList;
     }
 
+    @Override
+    public String toString() {
+        return "RanksHistory{" +
+                "asterisk=" + asterisk +
+                ", bestsellersDate='" + bestsellersDate + '\'' +
+                ", dagger=" + dagger +
+                ", displayName='" + displayName + '\'' +
+                ", listName='" + listName + '\'' +
+                ", primaryIsbn10='" + primaryIsbn10 + '\'' +
+                ", primaryIsbn13='" + primaryIsbn13 + '\'' +
+                ", publishedDate='" + publishedDate + '\'' +
+                ", rank=" + rank +
+                ", weeksOnList=" + weeksOnList +
+                '}';
+    }
 }

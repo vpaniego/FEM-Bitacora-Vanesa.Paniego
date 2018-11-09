@@ -29,4 +29,11 @@ public class Isbn {
         this.isbn13 = isbn13;
     }
 
+    @Override
+    public String toString() {
+        return "Isbn{" +
+                "isbn10='" + isbn10 + '\'' +
+                ", isbn13='" + isbn13 + '\'' +
+                '}';
+    }
 }
