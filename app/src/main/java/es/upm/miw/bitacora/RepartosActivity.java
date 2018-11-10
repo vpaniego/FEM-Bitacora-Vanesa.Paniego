@@ -37,8 +37,6 @@ public class RepartosActivity extends Activity {
 
     String currentUserID;
 
-    private static final int RC_REPARTOS_AC = 112018;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -165,11 +163,9 @@ public class RepartosActivity extends Activity {
                     switch (incidenciaSetEntry.getKey()) {
                         case "observaciones":
                             incidencia.setObservaciones((String) incidenciaSetEntry.getValue());
-                            Log.i(LOG_TAG, "incidencia.observaciones" + incidencia.getObservaciones());
                             break;
                         case "fecha":
                             incidencia.setFecha((Long) incidenciaSetEntry.getValue());
-                            Log.i(LOG_TAG, "incidencia.fecha" + incidencia.getFecha());
                             break;
                     }
                     incidencias.add(incidencia);
