@@ -23,7 +23,7 @@ public class FinalizarRepartoDialogFragment extends DialogFragment {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 activity.finalizarReparto();
-                                Toast.makeText(activity.getBaseContext(), "Finalizar reparto.Entrega satistactoria",
+                                Toast.makeText(activity.getBaseContext(), "Finalizar reparto. Entrega satistactoria",
                                             Toast.LENGTH_SHORT).show();
                             }
                         }

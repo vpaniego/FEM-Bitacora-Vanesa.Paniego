@@ -1,15 +1,10 @@
 package es.upm.miw.bitacora;
 
 import android.app.Activity;
-import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -22,8 +17,6 @@ import es.upm.miw.bitacora.models.Reparto;
 
 
 public class IncidenciaActivity extends Activity {
-
-    final static String LOG_TAG = "MiW";
 
     Reparto itemReparto;
     String currentUserID;
@@ -63,6 +56,8 @@ public class IncidenciaActivity extends Activity {
 
         Toast.makeText(this, "Incidencia creada correctamente",
                 Toast.LENGTH_SHORT).show();
+
+        finish();
     }
 
 }
