@@ -52,6 +52,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MostrarIncidenciasActivity"
+            android:label="@string/mostrarInicidenciasText"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            tools:ignore="GoogleAppIndexingWarning">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

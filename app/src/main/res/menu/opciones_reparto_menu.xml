@@ -3,6 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
+        android:id="@+id/mostrarIncidencias"
+        android:orderInCategory="100"
+        android:title="@string/mostrarInicidenciasText"
+        android:icon="@android:drawable/ic_menu_save"
+        app:showAsAction="ifRoom|withText" />
+
+    <item
         android:id="@+id/registrarIncidencia"
         android:orderInCategory="100"
         android:title="@string/registrarIncidenciaText"
