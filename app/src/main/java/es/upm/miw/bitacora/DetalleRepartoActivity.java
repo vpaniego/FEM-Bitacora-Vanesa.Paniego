@@ -179,6 +179,9 @@ public class DetalleRepartoActivity extends Activity {
             case R.id.finalizarReparto:
                 mostrarFinalizarReparto();
                 return true;
+            case R.id.mostrarIncidencias:
+                mostrarIncidenciasReparto();
+                return true;
 
         }
         return super.onOptionsItemSelected(item);
@@ -192,6 +195,16 @@ public class DetalleRepartoActivity extends Activity {
     private void mostrarFinalizarReparto() {
         DialogFragment finalizarDialogFragment = new FinalizarRepartoDialogFragment();
         finalizarDialogFragment.show(getFragmentManager(), String.valueOf(R.string.finalizarRepartoText));
+    }
+
+    private void mostrarIncidenciasReparto() {
+        Intent intent = new Intent(this, MostrarIncidenciasActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("REPARTO", itemReparto);
+        intent.putExtras(bundle);
+        intent.putExtra("FIREBASE_AUTH_CURRENT_USER", currentUserID);
+        intent.putExtra("ITEM_ID", itemReparto.getId());
+        startActivity(intent);
     }
 
     public void finalizarReparto() {

@@ -44,4 +44,8 @@
     <string name="hintObservaciones">Observaciones incidencia</string>
     <string name="btnIncidencia">Guardar</string>
 
+    <string name="mostrarInicidenciasText">Mostrar incidencias</string>
+    <string name="tvObservacionesHeaderText">Observaciones</string>
+    <string name="tvFechaHeaderText">Fecha</string>
+
 </resources>
