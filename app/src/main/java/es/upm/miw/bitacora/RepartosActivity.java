@@ -88,6 +88,7 @@ public class RepartosActivity extends Activity {
                                 reparto.setFechaRecepcion((Long) repartoValueMap.get("fechaRecepcion"));
                                 reparto.setFechaEntrega((Long) repartoValueMap.get("fechaEntrega"));
                                 reparto.setDireccion((String) repartoValueMap.get("direccion"));
+                                reparto.setLocalizacion((String) repartoValueMap.get("localizacion"));
                                 reparto.setEntregado((Boolean) repartoValueMap.get("entregado"));
                                 reparto.setIncidencias(getIncidenciasFromRepartoValueMap(repartoValueMap.get("incidencias")));
 

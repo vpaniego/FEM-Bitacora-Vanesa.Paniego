@@ -20,19 +20,22 @@ public class Reparto implements Serializable {
 
     public ArrayList<Incidencia> incidencias = new ArrayList<>();
 
+    public String localizacion;
+
     public boolean entregado = Boolean.FALSE;
 
     public Reparto() {
         // Default constructor required for calls to DataSnapshot.getValue(Repartidor.class)
     }
 
-    public Reparto(String titulo, long fechaRecepcion, long fechaEntrega, String direccion, ArrayList<Incidencia> incidencias, boolean entregado) {
+    public Reparto(String titulo, long fechaRecepcion, long fechaEntrega, String direccion, ArrayList<Incidencia> incidencias, boolean entregado, String localizacion) {
         this.titulo = titulo;
         this.fechaRecepcion = fechaRecepcion;
         this.fechaEntrega = fechaEntrega;
         this.direccion = direccion;
         this.incidencias = incidencias;
         this.entregado = entregado;
+        this.localizacion = localizacion;
     }
 
     public String getId() {
@@ -83,6 +86,14 @@ public class Reparto implements Serializable {
         this.incidencias = incidencias;
     }
 
+    public String getLocalizacion() {
+        return localizacion;
+    }
+
+    public void setLocalizacion(String localizacion) {
+        this.localizacion = localizacion;
+    }
+
     public boolean isEntregado() {
         return entregado;
     }
@@ -108,6 +119,7 @@ public class Reparto implements Serializable {
                 ", fechaEntrega=" + fechaEntrega +
                 ", direccion='" + direccion + '\'' +
                 ", incidencias=" + incidencias +
+                ", localizacion='" + localizacion + '\'' +
                 ", entregado=" + entregado +
                 '}';
     }

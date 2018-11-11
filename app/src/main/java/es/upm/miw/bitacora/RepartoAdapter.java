@@ -65,6 +65,9 @@ public class RepartoAdapter extends ArrayAdapter<Reparto> {
             TextView tvDireccion = view.findViewById(R.id.tvDireccion);
             tvDireccion.setText(reparto.getDireccion());
 
+            TextView tvLocalizacion = view.findViewById(R.id.tvLocalizacion);
+            tvLocalizacion.setText(reparto.getLocalizacion());
+
             TextView tvEntregado = view.findViewById(R.id.tvEntregado);
             tvEntregado.setText(reparto.isEntregado() ? "SI" : "NO");
         }

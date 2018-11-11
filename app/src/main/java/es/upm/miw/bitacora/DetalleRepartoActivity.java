@@ -182,10 +182,14 @@ public class DetalleRepartoActivity extends Activity {
             case R.id.mostrarIncidencias:
                 mostrarIncidenciasReparto();
                 return true;
+            case R.id.actualizarLocalizacionReparto:
+                actualizarLocalizacionReparto();
+                return true;
 
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     private void mostrarRegistrarIncidencia() {
         DialogFragment registrarIncidenciaDialogFragment = new RegistrarIncidenciaDialogFragment();
@@ -195,6 +199,15 @@ public class DetalleRepartoActivity extends Activity {
     private void mostrarFinalizarReparto() {
         DialogFragment finalizarDialogFragment = new FinalizarRepartoDialogFragment();
         finalizarDialogFragment.show(getFragmentManager(), String.valueOf(R.string.finalizarRepartoText));
+    }
+
+    private void actualizarLocalizacionReparto() {
+        Intent intent = new Intent(this, LocalizacionActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("REPARTO", itemReparto);
+        intent.putExtras(bundle);
+        intent.putExtra("FIREBASE_AUTH_CURRENT_USER", currentUserID);
+        startActivity(intent);
     }
 
     private void mostrarIncidenciasReparto() {
