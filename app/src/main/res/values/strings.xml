@@ -35,6 +35,7 @@
     <string name="tvDireccionHeaderText">Dirección</string>
     <string name="tvFechaRecepcionHeaderText">Fecha recepción</string>
     <string name="tvFechaEntregaHeaderText">Fecha entrega</string>
+    <string name="tvLocalizacionHeaderText">Localización</string>
     <string name="tvEntregadoHeaderText">Entregado</string>
 
     <string name="detalleRepartoText">Detalle Reparto</string>
@@ -47,5 +48,10 @@
     <string name="mostrarInicidenciasText">Mostrar incidencias</string>
     <string name="tvObservacionesHeaderText">Observaciones</string>
     <string name="tvFechaHeaderText">Fecha</string>
+
+    <string name="actualizarLocalizacionRepartoRepartoText">Actualizar localización</string>
+    <string name="tvLocalizacion">Nueva localización</string>
+    <string name="hintLocalizacion">Localización reparto</string>
+    <string name="btnLocalizacion">Guardar</string>
 
 </resources>

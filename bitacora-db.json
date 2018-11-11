@@ -9,6 +9,7 @@
           "fechaRecepcion" : 1541637858000,
           "fechaEntrega" : 0,
           "direccion" : "Librería San Pablo, Calle de Alcalá, 387, 28027 Madrid",
+          "localizacion" : "Instalaciones del repartidor",
           "entregado" : false
         },
         "9780871404428" : {
@@ -16,6 +17,7 @@
           "fechaRecepcion" : 1541637858000,
           "fechaEntrega" : 0,
           "direccion" : "Librería Dos Castillas, Calle de José del Hierro, 46, 28027 Madrid",
+          "localizacion" : "Instalaciones del repartidor",
           "entregado" : false
         }
       }
@@ -29,6 +31,7 @@
           "fechaRecepcion" : 1541637858000,
           "fechaEntrega" : 0,
           "direccion" : "Librería Polifemo, Av. de Bruselas, 44, 28028 Madrid",
+          "localizacion" : "Instalaciones del repartidor",
           "entregado" : false
         },
         "9781984801838" : {
@@ -36,6 +39,7 @@
           "fechaRecepcion" : 1541637858000,
           "fechaEntrega" : 0,
           "direccion" : "Librería Miraguano, Calle de Hermosilla, 104, 28009 Madrid",
+          "localizacion" : "Instalaciones del repartidor",
           "entregado" : false
         },
         "9780698193611" : {
@@ -43,6 +47,7 @@
           "fechaRecepcion" : 1541637858000,
           "fechaEntrega" : 0,
           "direccion" : "Librería Felipa, Calle del Pilar de Zaragoza, 37, 28028 Madrid",
+          "localizacion" : "Instalaciones del repartidor",
           "entregado" : false
         }
       }

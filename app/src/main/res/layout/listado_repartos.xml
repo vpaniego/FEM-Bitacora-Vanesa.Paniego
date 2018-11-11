@@ -8,14 +8,14 @@
         android:id="@+id/tvTitulo"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="30"
+        android:layout_weight="20"
         android:gravity="left" />
 
     <TextView
         android:id="@+id/tvDireccion"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="40"
+        android:layout_weight="20"
         android:gravity="left" />
 
     <TextView
@@ -31,6 +31,13 @@
         android:layout_height="match_parent"
         android:layout_weight="10"
         android:gravity="left" />
+    <TextView
+        android:id="@+id/tvLocalizacion"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="30"
+        android:gravity="left" />
+
 
     <TextView
         android:id="@+id/tvEntregado"
